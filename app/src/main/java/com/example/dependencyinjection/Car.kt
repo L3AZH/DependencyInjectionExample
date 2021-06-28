@@ -17,6 +17,7 @@ class Car() {
 
     // injection field(2)
     @Inject lateinit var engine:Engine
+    //truong hop chung ta khong the injection Wheels class -> xem o wheels class
     lateinit var wheels: Wheels
 
 
