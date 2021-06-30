@@ -1,4 +1,4 @@
-package com.example.dependencyinjection
+package com.example.dependencyinjection.car
 
 import android.util.Log
 

@@ -1,4 +1,4 @@
-package com.example.dependencyinjection
+package com.example.dependencyinjection.car
 
 import android.util.Log
 import javax.inject.Inject
@@ -15,26 +15,28 @@ class Car() {
 
     private val TAG = "CAR TAG"
 
-    // injection field(2)
-    @Inject lateinit var engine:Engine
+    // truong hop engine la 1 interface
+    lateinit var engine: Engine
     //truong hop chung ta khong the injection Wheels class -> xem o wheels class
     lateinit var wheels: Wheels
 
 
     //injection contructor (1)
     @Inject
-    constructor(wheels: Wheels):this(){
+    constructor(engine: Engine, wheels: Wheels):this(){
         this.wheels = wheels
+        this.engine = engine
     }
 
 
     //injection method(3)
     @Inject
-    fun enableRemote(remote:Remote){
+    fun enableRemote(remote: Remote){
         remote.setListener(this)
     }
 
     fun drive(){
+        engine.start();
         Log.i(TAG, "drive: driving .....")
     }
 }
