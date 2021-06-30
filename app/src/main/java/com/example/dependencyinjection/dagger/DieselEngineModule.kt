@@ -7,10 +7,16 @@ import dagger.Provides
 
 
 @Module
-class DieselEngineModule {
+class DieselEngineModule() {
+
+    private var horsePower:Int? = null
+
+    constructor(horsePower:Int):this(){
+        this.horsePower = horsePower
+    }
 
     @Provides
-    fun providerEngine(dieselEngine: DieselEngine): Engine {
-        return dieselEngine;
+    fun providerEngine(): Engine {
+        return DieselEngine(horsePower!!);
     }
 }
